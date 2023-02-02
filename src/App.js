@@ -19,7 +19,6 @@ function App() {
   const [users, setUsers] = useState([]);
 
   const handleDragEnd = (event) => {
-    // console.log("drag end called");
     const { active, over } = event;
     // console.log("active", active.id);
     // console.log("over", over.id);
@@ -29,7 +28,6 @@ function App() {
         const activeIndex = items.indexOf(active.id);
         const overIndex = items.indexOf(over.id);
         const newArray = arrayMove(items, activeIndex, overIndex);
-        // console.log(newArray);
         return newArray;
       });
     }
@@ -60,6 +58,8 @@ function App() {
       setNewUsers((q) => {
         return [...q, query];
       });
+    } else {
+      alert("select a user");
     }
   };
 
@@ -72,7 +72,7 @@ function App() {
           marginTop: "100px",
         }}
       >
-        Questions
+        Users
       </h3>
       <div style={{ display: "flex", margin: "10px auto" }}>
         <Select

@@ -21,6 +21,12 @@ export function SortableItem(props) {
           marginBottom: "5px",
         }}
       >
+        <button
+          className=""
+          style={{ width: "100%", cursor: "default", border: "1px solid #ccc" }}
+        >
+          {props.id}
+        </button>
         <span
           style={{
             padding: "5px 10px",
@@ -31,12 +37,6 @@ export function SortableItem(props) {
         >
           ⣿
         </span>
-        <button
-          className=""
-          style={{ width: "100%", cursor: "default", border: "1px solid #ccc" }}
-        >
-          {props.id}
-        </button>
         <button
           type="button"
           style={{
