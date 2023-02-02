@@ -29,7 +29,7 @@ function App() {
         const activeIndex = items.indexOf(active.id);
         const overIndex = items.indexOf(over.id);
         const newArray = arrayMove(items, activeIndex, overIndex);
-        console.log(newArray);
+        // console.log(newArray);
         return newArray;
       });
     }
@@ -56,37 +56,49 @@ function App() {
   };
 
   const handleAdd = () => {
-    if (query.length !== 0) {
+    if (query.length !== 0 && !newUsers.includes(query)) {
       setNewUsers((q) => {
         return [...q, query];
       });
     }
   };
 
+  console.log(newUsers);
+
   return (
     <div className="App">
+      <h3
+        style={{
+          marginTop: "100px",
+        }}
+      >
+        Questions
+      </h3>
+      <div style={{ display: "flex", margin: "10px auto" }}>
+        <Select
+          className="basic-single"
+          classNamePrefix="select"
+          defaultValue={users[0]}
+          isClearable
+          isSearchable
+          name="color"
+          options={users}
+          onChange={onChange}
+        />
+        <button onClick={handleAdd}>Add</button>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+        }}
+      ></div>
       <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-        <Container className="p-3" style={{ width: "50%" }} align="center">
-          <h3>Questions</h3>
-          <div style={{ display: "flex" }}>
-            <Select
-              className="basic-single"
-              classNamePrefix="select"
-              defaultValue={users[0]}
-              isClearable
-              isSearchable
-              name="color"
-              options={users}
-              onChange={onChange}
-            />
-            <button onClick={handleAdd}>Add</button>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              width: "100%",
-            }}
-          ></div>
+        <Container
+          className="p-3"
+          style={{ width: "50%", background: "#dedede" }}
+          align="center"
+        >
           <SortableContext
             items={newUsers}
             strategy={verticalListSortingStrategy}

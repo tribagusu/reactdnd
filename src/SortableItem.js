@@ -21,7 +21,16 @@ export function SortableItem(props) {
           marginBottom: "5px",
         }}
       >
-        <span style={{ padding: "5px 10px", border: "1px solid #000" }}>⣿</span>
+        <span
+          style={{
+            padding: "5px 10px",
+            border: "1px solid #000",
+            background: "tan",
+            cursor: "grab",
+          }}
+        >
+          ⣿
+        </span>
         <button
           className=""
           style={{ width: "100%", cursor: "default", border: "1px solid #ccc" }}
@@ -34,6 +43,7 @@ export function SortableItem(props) {
             marginLeft: "10px",
             padding: "5px 10px",
             color: "red",
+            border: "none",
           }}
         >
           X
