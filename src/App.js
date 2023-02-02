@@ -56,9 +56,11 @@ function App() {
   };
 
   const handleAdd = () => {
-    setNewUsers((q) => {
-      return [...q, query];
-    });
+    if (query.length !== 0) {
+      setNewUsers((q) => {
+        return [...q, query];
+      });
+    }
   };
 
   return (
