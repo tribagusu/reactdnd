@@ -14,7 +14,7 @@ export function SortableItem(props) {
   // console.log("attributes", attributes);
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+    <div style={style}>
       <div
         style={{
           display: "flex",
@@ -28,6 +28,9 @@ export function SortableItem(props) {
           {props.id}
         </button>
         <span
+          ref={setNodeRef}
+          {...attributes}
+          {...listeners}
           style={{
             padding: "5px 10px",
             border: "1px solid #000",
